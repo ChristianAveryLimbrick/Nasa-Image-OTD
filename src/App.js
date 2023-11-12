@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Gallery from "./components/gallery";
+import Description from "./components/description";
+import Footer from "./components/footer";
 
-function App() {
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <Gallery />
+      <Description />
+      
     </div>
   );
 }
 
-export default App;
+const headerFont = {
+  fontFamily: "'Raleway', sans-serif",
+
+};
+
+function Header() {
+  return (
+    <div className="bg-white border-b border-gray-200 py-3 shadow-sm">
+      <h1 className="text-center text-3xl md:text-4xl font-semibold text-gray-800" style={headerFont}>
+        NASA Image Of The Day
+      </h1>
+    </div>
+  );
+}
