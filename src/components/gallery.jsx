@@ -11,7 +11,11 @@ export default function Gallery({ slideInterval, imageData, currentIndex, setCur
 
 
   if (!imageData || imageData.length === 0) {
-    return <div>Loading...</div>;
+    return (
+      <div className='flex justify-center items-center h-screen'>
+    <div className='loading'>Loading...</div>
+  </div>
+    )
 }
 
 const handleSlideChange = (newIndex) => {
