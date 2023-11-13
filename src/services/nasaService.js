@@ -7,16 +7,20 @@ const BASE_URL = 'https://api.nasa.gov/planetary/apod';
 const getLast14Days = () => {
   const dates = [];
   const today = new Date();
-  for (let i = 0; i < 14; i++) {
+   
+for (let i = 0; i < 14; i++) {
     const date = new Date(today);
-    today.setDate(today.getDate() - 1);
+
+
     date.setDate(date.getDate() - i);
     dates.push(date.toISOString().split('T')[0]);
+    
   }
+  console.log("Dates array:", dates);
   return dates;
 };
 
-const fetchImagesForLast14Days = async () => {
+const fetchImagesAndExplanationsForLast14Days = async () => {
   const dates = getLast14Days();
   try {
     const promises = dates.map(date => 
@@ -24,13 +28,28 @@ const fetchImagesForLast14Days = async () => {
         .catch(error => ({ error })) // Catch individual errors
     );
     const responses = await Promise.all(promises);
-    return responses
+    console.log("API responses:", responses); 
+
+    const imagesWithExplanations = responses
       .filter(response => !response.error) // Filter out failed requests
-      .map(response => response.data);
+      .map(response => {
+        return {
+          url: response.data.url,
+          title: response.data.title,
+          explanation: response.data.explanation, // Include explanation
+          media_type: response.data.media_type,
+          date: response.data.date,
+        };
+      });
+
+      console.log("Processed data:", imagesWithExplanations); 
+
+    return imagesWithExplanations;
   } catch (error) {
     console.error("Error fetching NASA Images for the last 14 days: ", error);
     return [];
   }
 };
 
-export { fetchImagesForLast14Days };
+export { fetchImagesAndExplanationsForLast14Days };
+
