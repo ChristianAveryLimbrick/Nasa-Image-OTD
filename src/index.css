@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.img-container{
-    max-height: 500px;
-}
-.image-container img {
-    width: 80%;
-    height: auto;
+.img-container {
+    height: 600px; /* Adjust as needed */
+    width: auto;
+  }
+  .img-container img {
+    width: 100%;
+    height: 600px;
     object-fit: cover;
   }
 

@@ -3,6 +3,7 @@ import React from "react";
 import { fetchImagesForLast14Days } from "../services/nasaService";
 import { Carousel } from "flowbite-react";
 import { useEffect } from "react";
+import "../index.css"
 
 
 
@@ -14,6 +15,7 @@ export default function Gallery({ slideInterval }) {
         const fetchData = async () =>{
             const images = await fetchImagesForLast14Days();
             const imagesOnly = images.filter(item => item.media_type === 'image')
+            console.log(fetchImagesForLast14Days)
             setImageData(imagesOnly)
         };
         fetchData();
