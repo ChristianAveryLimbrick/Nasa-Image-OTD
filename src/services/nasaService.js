@@ -31,7 +31,7 @@ const fetchImagesAndExplanationsForLast14Days = async () => {
     console.log("API responses:", responses); 
 
     const imagesWithExplanations = responses
-      .filter(response => !response.error) // Filter out failed requests
+      .filter(response => !response.error && response.data.media_type === 'image') // Filter out failed requests and videos
       .map(response => {
         return {
           url: response.data.url,

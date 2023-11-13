@@ -8,15 +8,14 @@ export default function Description({ explanation, date, title }) {
 
 
   return (
-    <div className="flex flex-col justify-center items-center my-8 mx-4 md:mx-8 description">
-      <h1 className = 'img-title'>{title} </h1>
-      <h4 className="text-xl md:text-3xl text-center font-semibold text-gray-800 mb-4">
-        {` Image of the Day for ${date}`}{" "}
-      </h4>
-      <p className="text-center text-gray-700 text-lg md:text-xl">
-        {explanation ||
-          "Explore the wonders of the universe with NASA's Image of the Day."}
-      </p>
+    <div className="bg-white p-4 rounded-lg font">
+    <h2 className="text-3xl  text-gray-700 text-center mb-4 font">{title}</h2>
+    <p className="text-lg text-gray-600 text-center mb-1 font">{`NASA Image of the Day for: ${date}`}</p>
+    <p className = 'text-sm text-gray-600 text-center mb-6 font'>(Hover on image to halt scroll)</p>
+    <div className="text-lg text-gray-700 text-center mx-auto px-4 md:max-w-3xl lg:max-w-4xl mb-10 font">
+        {explanation || "Explore the wonders of the universe with NASA's Image of the Day."}
     </div>
+</div>
+
   );
 }
