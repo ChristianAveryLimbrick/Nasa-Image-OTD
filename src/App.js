@@ -35,6 +35,8 @@ export default function App() {
         date={currentImage.date}
         explanation={currentImage.explanation}
       />
+
+      <Footer />
      
     </div>
   );
