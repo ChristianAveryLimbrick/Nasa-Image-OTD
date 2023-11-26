@@ -7,9 +7,7 @@ export default function Footer() {
         Created by Christian Limbrick
       </h1>
       <p className="text-center text-sm text-white pb-4">
-  <a href="mailto:avelimb@gmail.com" className="text-white">
-    avelimb@gmail.com
-  </a>
+  
 </p>
 
     </div>
